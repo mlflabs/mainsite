@@ -9,7 +9,7 @@ cyan='\e[96m'
 none='\e[0m'
 
 options=(
-	"Install Shadowsocks"
+    "Install Shadowsocks",
     "Install v2ray"
 )
 
@@ -27,6 +27,4 @@ echo "Options:"
 
 for ((i = 1; i <= ${#options[*]}; i++)); do
     echo "($i) ${transport[$i - 1]}"
-
-
 done
