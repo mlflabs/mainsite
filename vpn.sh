@@ -28,3 +28,5 @@ echo "Options:"
 for ((i = 1; i <= ${#options[*]}; i++)); do
     echo "($i) ${options[$i - 1]}"
 done
+
+echo "Choose Option" read mainOption
