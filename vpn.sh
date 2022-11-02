@@ -38,7 +38,8 @@ ssMethod="chacha20-ietf-poly1305"
 
 f_readSSOptions() {
 	#read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
-	echo "Options"
+	read -p "Port [$ssPort]:" ssPort
+	ssPort=${ssPort:-$ssPort}
 }
 
 f_writeSSSettings() {
