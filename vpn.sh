@@ -64,7 +64,7 @@ EOF
 
 
 ################
-if [$mainOption -eq 1]
+if [ $mainOption -eq 1 ]
 then
 	f_readSSOptions
 fi
