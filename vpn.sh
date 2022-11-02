@@ -26,5 +26,5 @@ ciphers=(
 echo "Options:"
 
 for ((i = 1; i <= ${#options[*]}; i++)); do
-    echo "($i) ${transport[$i - 1]}"
+    echo "($i) ${options[$i - 1]}"
 done
