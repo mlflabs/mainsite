@@ -36,29 +36,34 @@ ssPort=443
 ssPassword="password123"
 ssMethod="chacha20-ietf-poly1305"
 
+
+##############
 f_readSSOptions() {
 	#read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 	read -p "Port [$ssPort]:" ssPort
 	ssPort=${ssPort:-$ssPort}
 }
 
-f_writeSSSettings() {
-	docker pull teddysun/shadowsocks-rust
-	mkdir -p /etc/shadowsocks-rust
-	cat << EOF > /etc/shadowsocks-rust/config.json
-	{
-	    "server":"0.0.0.0",
-	    "server_port": $ssPort,
-	    "password": $ssPassword,
-	    "timeout":300,
-	    "method": $ssMethod,
-	    "nameserver":"8.8.8.8",
-	    "mode":"tcp_and_udp"
-	}
-	EOF
 
+##############
+f_writeSSSettings() {
+docker pull teddysun/shadowsocks-rust
+mkdir -p /etc/shadowsocks-rust
+cat << EOF > /etc/shadowsocks-rust/config.json
+{
+	   "server":"0.0.0.0",
+	   "server_port": $ssPort,
+	   "password": $ssPassword,
+	   "timeout":300,
+	   "method": $ssMethod,
+	   "nameserver":"8.8.8.8",
+	   "mode":"tcp_and_udp"
+}
+EOF
 }
 
+
+################
 if [[$mainOption -eq 1]]
 then
 	f_readSSOptions
